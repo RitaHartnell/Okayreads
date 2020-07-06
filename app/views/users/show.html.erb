@@ -1,0 +1,32 @@
+<div class="page-title">
+<h1><%= "#{@user.username}'s Profile" %></h1>
+<p class="link-wrapper"><%= link_to "Edit Profile", edit_user_path(@user), class: "button" %></p>
+</div>
+<div>
+    <h2>About Me</h2>
+    <ul>
+        <%= "Name: #{@user.displayname}" %> <br>
+        <%= "Age: #{@user.age}" %> <br>
+        <%= "Location: #{@user.location}" %>
+    <ul>
+</div>
+<div>
+    <h2>My Reviews</h2>
+    <% if @user.reviews != []  %>
+        <ul class="reviews">
+            <% @user.reviews.each do |review|%>
+                <li>
+                    <%= review.book.title %> <br>
+                    <%= link_to review.title, review_path(review) %> <br>
+                    <%= review.rating %> + stars <br>
+                    <%= review.content %>
+                </li>
+            <% end %>
+        </ul>
+    <% elsif %>
+        <ul class="reviews">
+            <li>There's nothing here :( <br>
+                Get out there and <%= link_to "read something", books_path %></li>
+        </ul>
+    <% end%>
+</div>

@@ -1,0 +1,11 @@
+<%= form_for @user do |f|%>
+    <%= f.label :username%>
+    <%= f.text_field :username%> <br>
+    <%= f.label :displayname, "Display Name",  :class=>'inline betaLabelTextField'%>
+    <%= f.text_field :displayname, :class=>'betaTextField'%> <br>
+    <%= f.label :age %>
+    <%= f.number_field :age %> <br>
+    <%= f.label :location %>
+    <%= f.text_field :location %> <br>
+    <%= f.submit 'Submit', class: 'btn' %>
+<%end%>
