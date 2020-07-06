@@ -1,0 +1,6 @@
+<h1>Search Results</h1>
+
+<% @arrayOfBooks.each do |book_hash| %>
+<p><%= @book_title = book_hash["volumeInfo"]["title"] %> by
+<%= @book_author = book_hash["volumeInfo"]["authors"] && book_hash["volumeInfo"]["authors"].first %></p>
+<% end %>
