@@ -13,3 +13,85 @@
  *= require_tree .
  *= require_self
  */
+
+ html {
+    background-color: azure
+}
+
+
+div {
+    background: #fff;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.06);
+    color: #545454;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0 auto;
+    margin-bottom: 1em;
+    max-width: 800px;
+    padding: 2em 2em 2em;
+}
+
+div.page-title {
+    padding: .5em 2em .5em;
+}
+
+ul.reviews {
+    list-style: none;
+}
+
+a{
+    font-family: inherit;
+    font-size: inherit;
+    text-shadow: grey;
+    text-decoration: unset;
+}
+
+a:link {
+    color: darkcyan;
+}
+
+a:visited {
+    color: indigo;
+}
+
+a:hover {
+    color: hotpink;
+    text-decoration: underline;
+}
+
+a:active {
+    color: lightcoral;
+    text-decoration: underline;
+}
+
+p.link-wrapper {
+    margin-top: 0em;
+}
+
+h1 {
+    margin-bottom: 0em;
+}
+
+a.button {
+    background-color: lavender;
+    color: inherit;
+    padding: .5em .5em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    box-sizing: border-box;
+    border-width: 2px;
+    border-style: outset;
+    border-color: -internal-light-dark-color(rgb(118, 118, 118), rgb(195, 195, 195));
+    border-image: initial;
+}
+
+input.btn {
+    background-color: lavender;
+    color: inherit;
+    padding: .5em .5em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
