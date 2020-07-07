@@ -1,0 +1,14 @@
+<%= form_for @review do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %> <br>
+    <%= f.label :user_id, 'User' %>
+    <%= f.collection_select :user_id, User.all, :id, :username, prompt: true %> <br>
+    <%= f.label :book_id, 'Book' %>
+    <%= f.collection_select :book_id, Book.all, :id, :title, prompt: true %> <br>
+    <%= f.label :content %>
+    <%= f.text_area :content %> <br>
+    <%= f.label :rating %>
+    <%= f.select :rating, [['1: bad', 1], ['2: ok', 2], ['3: good', 3], ['4: great', 4], ['5: excelent', 5]] %> <br>
+    <%= f.submit 'Submit', class: 'btn' %>
+<%end%>
+

@@ -1,0 +1,16 @@
+<div class="page-title">
+    <h1>Review of <%=@review.booktitle%></h1>
+    <h2>
+        Title: <%= @review.title %> <br>
+        Rating: <%= @review.rating %> out of 5 <br>
+        By: <%= @review.username %>
+    </h2>
+    <p class="link-wrapper"><%= link_to "Back to Book Page", book_path(@review.book), class: "button" %> <br>
+    <%= link_to "User Profile", user_path(@review.user), class: "button" %> <br>
+    <%= link_to "Edit Review", edit_review_path(@review), class: "button" %></p>
+</div>
+
+<div>  
+    <%= @review.content %>
+</div>
+

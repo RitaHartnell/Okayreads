@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+terf = Author.create(name: "JK Rowlling", age: 54)
+
+Book.create(title: "Harry Potter and the Sorcerer's Stone", author: terf, length: 310)
