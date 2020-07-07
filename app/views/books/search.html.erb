@@ -1,6 +1,10 @@
-<h1>Search Results</h1>
-
-<% @arrayOfBooks.each do |book_hash| %>
-<p><%= @book_title = book_hash["volumeInfo"]["title"] %> by
-<%= @book_author = book_hash["volumeInfo"]["authors"] && book_hash["volumeInfo"]["authors"].first %></p>
-<% end %>
+<div class="page-title">
+    <h1>Search Results</h1>
+    <p class="link-wrapper"><%= link_to "Back to Search", books_path, class: "button" %></p>
+</div>
+<div>
+    <% @arrayOfBooks.each do |book_hash| %>
+        <%= @book_title = book_hash["volumeInfo"]["title"] %> by
+        <%= @book_author = book_hash["volumeInfo"]["authors"] && book_hash["volumeInfo"]["authors"].first %> <br>
+    <% end %>
+</div>
