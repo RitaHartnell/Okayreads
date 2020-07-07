@@ -1,4 +1,4 @@
-<%= form_for @user do |f|%>
+<div class='form'><%= form_for @user do |f|%>
     <%= f.label :username%>
     <%= f.text_field :username%> <br>
     <%= f.label :displayname, "Display Name",  :class=>'inline betaLabelTextField'%>
@@ -8,4 +8,13 @@
     <%= f.label :location %>
     <%= f.text_field :location %> <br>
     <%= f.submit 'Submit', class: 'btn' %>
+<%end%>
+</div>
+
+<%if flash[:myerrors]%>
+    <div class='errors'>
+        <%flash[:myerrors].each do |error| %>
+            <%=error%><br>
+        <%end%>
+    </div>
 <%end%>

@@ -36,6 +36,14 @@ div.page-title {
     padding: .5em 2em .5em;
 }
 
+div.form {
+    padding: 2em 2em 4em;
+}
+
+div.errors {
+    color: orangered;
+}
+
 ul.reviews {
     list-style: none;
 }
@@ -90,7 +98,7 @@ a.button {
 input.btn {
     background-color: lavender;
     color: inherit;
-    padding: .5em .5em;
+    padding: .5em .5em .5em;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -103,4 +111,19 @@ button.btn {
     text-align: center;
     text-decoration: none;
     display: inline-block;
+}
+
+select, textarea, input {
+    font-family: inherit;
+}
+
+label {
+    width:100px;
+    clear:left;
+    text-align:right;
+    padding-right:10px;
+}
+
+input, label {
+    float: left;
 }
