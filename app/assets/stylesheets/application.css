@@ -95,3 +95,12 @@ input.btn {
     text-decoration: none;
     display: inline-block;
 }
+
+button.btn {
+    background-color: lavender;
+    color: inherit;
+    padding: .5em .5em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
