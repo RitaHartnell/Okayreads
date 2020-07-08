@@ -1,0 +1,6 @@
+<h3><%= @author.name %></h3>
+<% @author.books.each do |book| %>
+<p><%= link_to book.title, book_path(book) %></p>
+<% end %>
+
+<p><%= link_to "Create a favorite author!", new_favorite_path %></p>
