@@ -1,5 +1,9 @@
 <div class="page-title">
-    <h1>New Review</h1>
+    <h1>New Review
+    <% if session[:book_id] %>
+        <%= "of " + Book.find(session[:book_id]).title%>
+    <% end %>
+    </h1>
 </div>
 <div class='form'>
     <%= render 'form' %>

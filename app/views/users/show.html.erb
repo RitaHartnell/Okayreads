@@ -16,9 +16,9 @@
         <ul class="reviews">
             <% @user.reviews.each do |review|%>
                 <li>
-                    <%= review.book.title %> <br>
-                    <%= link_to review.title, review_path(review) %> <br>
-                    <%= review.rating %> + stars <br>
+                    Book: <%= review.book.title %> <br>
+                    Title: <%= link_to review.title, review_path(review) %> <br>
+                    Rating: <%= review.rating %> stars <br>
                     <%= review.content %>
                 </li>
             <% end %>
