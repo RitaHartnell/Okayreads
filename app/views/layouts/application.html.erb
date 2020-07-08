@@ -7,9 +7,24 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 
-  <header></header>
+  <header class='topnav'>
+    <%= link_to "Home", root_path%>
+    <%= link_to "Books", books_path%>
+    <%= link_to "Authors", authors_path%>
+    <div class="search-container">
+      <%= form_with(url: search_path, method: 'get', local: true) do %>
+          <%= text_field_tag :title, nil, placeholder: 'Search Books', class: 'form-control' %>
+          <button type="submit"><i class="fa fa-search"></i></button>
+      <% end %>
+    </div>
+
+    <% if flash[:alert] %>
+      <div class="alert alert-warning"><%= flash[:alert] %></div>
+    <% end %>
+  </header>
 
   <body>
     <%= yield %>
