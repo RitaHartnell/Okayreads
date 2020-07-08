@@ -5,15 +5,19 @@ class ReviewsController < ApplicationController
 
     def new
         @review = Review.new
+        @books = Book.all 
+        @users = User.all   
     end
 
     def create
-        @review = Review.new(review_params)
-        if session[:book_id]
-            @review.book_id = session[:book_id]
-        end
-        @review.save
-        redirect_to review_path(@review)
+        # @review = Review.new(review_params)
+        # if session[:book_id]
+        #     @review.book_id = session[:book_id]
+        # end
+        # @review.save
+        # redirect_to user_path(@current_user.id)
+        @current_user.reviews << Review.create(review_params)
+        redirect_to user_path(@current_user)
     end
 
     def edit
@@ -30,9 +34,9 @@ class ReviewsController < ApplicationController
 
     def review_params
         if !session[:book_id]
-            params.require(:review).permit(:title, :user_id, :book_id, :content, :rating)   
+            params.require(:review).permit(:title, :book_id, :content, :rating)   
         else
-            params.require(:review).permit(:title, :user_id, :content, :rating)
+            params.require(:review).permit(:title, :content, :rating)
         end
     end
 end

@@ -11,9 +11,23 @@
   </head>
 
   <header class='topnav'>
-    <%= link_to "Home", root_path%>
-    <%= link_to "Books", books_path%>
-    <%= link_to "Authors", authors_path%>
+    <ul>
+    <li><%= link_to "Home", root_path%></li>
+    <li><%= link_to "Books", books_path%></li>
+    <li><%= link_to "Authors", authors_path%></li>
+    
+    <% if @current_user %>
+    <li class='right'> Welcome! <%= @current_user.username %></li>
+    <li class='right'><%=link_to "My Profile", user_path(@current_user.id)%></li>
+    <li class='right'><%= link_to "Log-out", sessions_logout_path, method: :delete %></li>
+
+    <% else %>
+    <li class='right'><%= link_to "Sign up!", new_user_path %></li>
+    <li class='right'><%= link_to "Log-in", new_login_path %></li>
+
+    <% end %>
+    </ul>
+
     <div class="search-container">
       <%= form_with(url: search_path, method: 'get', local: true) do %>
           <%= text_field_tag :title, nil, placeholder: 'Search Books', class: 'form-control' %>
