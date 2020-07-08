@@ -10,13 +10,14 @@ class BooksController < ApplicationController
     def search
         @books = find_book(params[:title])
         @arrayOfBooks
+        @bookobjects = []
         @books.each do |book_hash|
             book_title = book_hash["volumeInfo"]["title"]
             book_author = book_hash["volumeInfo"]["authors"] && book_hash["volumeInfo"]["authors"].first
-            Book.save_it(book_title, book_author)
+            @bookobjects << Book.save_it(book_title, book_author)
         end
    end
-   
+
     private
 
     def find_book(title)

@@ -3,8 +3,8 @@
     <p class="link-wrapper"><%= link_to "Back to Search", books_path, class: "button" %></p>
 </div>
 <div>
-    <% @arrayOfBooks.each do |book_hash| %>
-        <%= @book_title = book_hash["volumeInfo"]["title"] %> by
-        <%= @book_author = book_hash["volumeInfo"]["authors"] && book_hash["volumeInfo"]["authors"].first %> <br>
+    <% @bookobjects.each do |array| %>
+        <%= link_to @book_title = array[1].title, book_path(array[1])%> by
+        <%= link_to @book_author = array[0].name, author_path(array[0])%> <br>
     <% end %>
 </div>
