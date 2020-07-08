@@ -1,1 +1,26 @@
-<h1><%= @book.title %> by <%= @book.author.name %> 
+<div class="page-title">
+    <h1><%= @book.title %> by <%= link_to @book.author.name, author_path(@book.author) %></h1>
+    <% if session[:title] %>
+        <p class='Link-wrapper'><%= link_to 'Back to Search', search_path, class: "button" %></p>
+    <% end %>
+</div>
+
+<div>
+    <% if @book.reviews != [] %>
+        <ul class="reviews">
+            <% @book.reviews.each do |review|%>
+                <li>
+                    Username: <%= link_to review.username, user_path(review.user) %> <br>
+                    Title: <%= link_to review.title, review_path(review) %> <br>
+                    Rating: <%= review.rating %> stars <br>
+                    <%= review.content %>
+                </li>
+            <% end %>
+        </ul>
+    <% else %>
+        <ul class="reviews">
+            <li>There's nothing here :( <br>
+                Read this book? <%= link_to "Review it!", new_review_path %></li>
+        </ul> 
+    <% end %>
+</div>
