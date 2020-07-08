@@ -1,8 +1,10 @@
 <div class="page-title">
     <h1><%= @author.name %></h1>
-    <% if session[:authors].find{|h| h['id'] == @author.id} %>
-        
-        <%= link_to "Back to Search", search_path, class: "button" %>
+    <% if session[:authors] %>
+        <% if session[:authors].find{|h| h['id'] == @author.id} %>
+            
+            <%= link_to "Back to Search", search_path, class: "button" %>
+        <% end %>
     <% end %>
 </div>
 
