@@ -9,13 +9,16 @@ class BooksController < ApplicationController
     end
 
     def search
-        if session[:title]
-            @books = find_book(session[:title])
-            @bookobjects = book_loop(@books)
-        else
+        if params[:title]
             @books = find_book(params[:title])
             session[:title] = params[:title]
             @bookobjects = book_loop(@books)
+            session[:authors] = @bookobjects.map{ |array| array[0] }
+        elsif session[:title]
+            @books = find_book(session[:title])
+            @bookobjects = book_loop(@books)
+            session[:authors] = @bookobjects.map{ |array| array[0] }
+
         end
    end
 

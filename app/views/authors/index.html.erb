@@ -2,6 +2,8 @@
     <h1>Authors</h1>
 </div>
 
-<% @authors.each do |author| %>
-<p><%= link_to author.name, author_path(author) %></p>
-<% end %>
+<div>
+    <% @authors.each do |author| %>
+        <%= link_to author.name, author_path(author) %> <br>
+    <% end %>
+</div>
