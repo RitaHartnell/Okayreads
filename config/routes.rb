@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :favorites
   resources :reviews, only: [:show, :create, :new, :edit, :update, :delete]
   resources :authors, only: [:index, :show]
   resources :books, only: [:index, :show, :create, :new]
