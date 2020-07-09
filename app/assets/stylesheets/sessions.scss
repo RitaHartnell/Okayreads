@@ -1,3 +1,39 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+i.subtitle-tiny{
+    margin-top: 0em;
+    font-family: cursive;
+}
+
+div.login {
+    padding-bottom: 4em;
+}
+
+#logo {
+    height: 100px;
+    width: auto;
+    float: right;
+}
+
+#not-logo {
+    height: 100px;
+    width: auto;
+    float: right;
+}
+
+.header {
+    padding-bottom: 1.5em;
+}
+  
+.header h1 {
+    margin-top: 0em;
+    position: relative;
+    left: auto;
+}
+
+.header p {
+    position: relative;
+    margin-top: 1em;
+}

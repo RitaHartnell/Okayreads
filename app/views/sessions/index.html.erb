@@ -1,0 +1,19 @@
+<div class="header">
+    <h1>Welcome to Okayreads!
+    <img id="logo" src="https://i.imgur.com/1SdCnT9.png" alt="logo" align="right"/>
+    <img id="not-logo" src="https://i.imgur.com/eRopuZP.png" alt="not logo" align="right"/>
+    </h1>
+    <p><i class = "subtitle-tiny">It's like GoodReads, but just okay</i></p>
+</div>
+
+<% if @current_user %>
+    <div style="overflow: hidden; margin: 15px auto; max-width: 800px;">
+        <iframe scrolling="no" src="<%=user_path(@current_user)%>" style="border: 0px none; height: 835px; margin-top: -490px; margin-left: 0px; margin-right: 10px; width: 800px;">
+        </iframe>
+    </div>
+<% else %>
+    <div style="overflow: hidden; margin: 15px auto; max-width: 800px;">
+        <iframe scrolling="yes" src="<%=books_path%>" style="border: 0px none; height: 835px; margin-top: -110px; margin-left: 0px; margin-right: 10px; width: 800px;">
+        </iframe>
+    </div>
+<% end %>

@@ -1,26 +1,25 @@
 <div class="page-title">
     <h1><%= @book.title %> by <%= link_to @book.author.name, author_path(@book.author) %></h1>
     <% if session[:title] %>
-        <p class='Link-wrapper'><%= link_to 'Back to Search', search_path, class: "button" %></p>
+        <p class='Link-wrapper'><%= link_to 'Back to Search', search_path, class: "button" %> <br>
+        <%= link_to "Review this Book", new_review_path, class: 'button'%>
+        </p>
     <% end %>
 </div>
 
 <div>
+    <h2>Reviews</h2>
     <% if @book.reviews != [] %>
-        <ul class="reviews">
-            <% @book.reviews.each do |review|%>
-                <li>
-                    Username: <%= link_to review.username, user_path(review.user) %> <br>
-                    Title: <%= link_to review.title, review_path(review) %> <br>
-                    Rating: <%= review.rating %> stars <br>
-                    <%= review.content %>
-                </li>
-            <% end %>
-        </ul>
+        <% @book.reviews.each do |review|%>
+            <div class="inner">
+                Username: <%= link_to review.username, user_path(review.user) %> <br>
+                Title: <%= link_to review.title, review_path(review) %> <br>
+                Rating: <%= review.rating %> stars <br>
+                <%= review.content %>
+            </div>
+        <% end %>
     <% else %>
-        <ul class="reviews">
-            <li>There's nothing here :( <br>
-                Read this book? <%= link_to "Review it!", new_review_path %></li>
-        </ul> 
+        <div class = "inner">There's nothing here :( <br>
+            Read this book? <%= link_to "Review it!", new_review_path %></div>
     <% end %>
 </div>

@@ -3,7 +3,7 @@
 </div>
 
 <div class='authors'>
-    <% @authors.sort_by{|author| author.name}.reverse.each do |author| %>
+    <% @authors.sort_by{|author| author.name}.each do |author| %>
         <%= link_to author.name, author_path(author) %> <br>
     <% end %>
 </div>

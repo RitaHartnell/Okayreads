@@ -1,1 +1,9 @@
-<div class='page-title'></div>
+<div class='page-title'>
+    <h1 class='nobutton'>All Books</h1>
+</div>
+
+<div class="authors">
+    <% @books.sort_by{|book| book.title}.each do |book| %>
+        <%= link_to book.title, book_path(book) %> <br>
+    <% end %>
+</div>

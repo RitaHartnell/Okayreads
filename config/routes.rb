@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :authors, only: [:index, :show]
   resources :books, only: [:index, :show, :create, :new]
   resources :users, only: [:show, :new, :create, :edit, :update]
-  root to: 'books#index'
+  root to: 'sessions#index'
   get '/search' => 'books#search'
 
   delete '/sessions/logout', to: 'sessions#logout', as: 'sessions_logout'
