@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
-        if @user = @current_user
+        if @user == @current_user
         else  
             redirect_to books_path
         end

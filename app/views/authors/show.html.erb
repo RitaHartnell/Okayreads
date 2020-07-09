@@ -13,8 +13,7 @@
     <% @author.books.each do |book| %>
         <%= link_to book.title, book_path(book) %> <br>
     <% end %>
-    <p><%= link_to "Favourite This Author", new_favorite_path, class: 'button' %></p>
-</div>
+    
 
 <div>
     <iframe class = "iframe"

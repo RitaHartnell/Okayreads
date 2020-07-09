@@ -7,8 +7,10 @@ class FavoritesController < ApplicationController
     end
 
     def create
-    @favorite = Favorite.create(favorite_params)
-    redirect_to user_path(@favorite.user.id)
+        @favorite = Favorite.new(favorite_params)
+        @favorite.user = @current_user
+        @favorite.save
+        redirect_to user_path(@current_user)
     end
 
     def edit
@@ -20,19 +22,19 @@ class FavoritesController < ApplicationController
     def update
     @favorite = Favorite.find(params[:id])
     @favorite.update(favorite_params)
-    redirect_to book_path(@favorite.book.id)
+    redirect_to user_path(@current_user)
     end
 
     def destroy
     @favorite = Favorite.find(params[:id])
     @favorite.destroy
-    redirect_to user_path(@favorite.user.id)
+    redirect_to user_path(@current_user)
     end
 
     private
 
     def favorite_params
-    params.require(:favorite).permit(:user_id, :book_id, :genre)
+    params.require(:favorite).permit(:genre, :author_id)
     end
 
 

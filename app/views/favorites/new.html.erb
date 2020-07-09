@@ -1,8 +1,8 @@
 <h2>Favorite an Author!</h2>
 
 <%= form_for @favorite do |f| %>
-<%= f.label :user_id %>
-<%= f.collection_select :user_id, @users, :id, :displayname %>
+<%# <%= f.label :user_id %>
+<%# <%= f.collection_select :user_id, @users, :id, :displayname %> 
 
 <%= f.label :author_id %>
 <%= f.collection_select :author_id, @authors, :id, :name %>
