@@ -1,6 +1,8 @@
 <div class="page-title">
     <h1><%= "#{@user.username}'s Profile" %></h1>
-    <p class="link-wrapper"><%= link_to "Edit Profile", edit_user_path(@user), class: "button" %></p>
+    <% if session[:user_id] == @user.id %>
+        <p class="link-wrapper"><%= link_to "Edit Profile", edit_user_path(@user), class: "button" %></p>
+    <% end %>
 </div>
 <div>
     <h2>About Me</h2>
@@ -13,20 +15,18 @@
 <div>
     <h2>My Reviews</h2>
     <% if @user.reviews != []  %>
-        <ul class="reviews">
-            <% @user.reviews.each do |review|%>
-                <li>
-                    Book: <%= review.book.title %> <br>
-                    Title: <%= link_to review.title, review_path(review) %> <br>
-                    Rating: <%= review.rating %> stars <br>
-                    <%= review.content %>
-                </li>
-            <% end %>
-        </ul>
+        <% @user.reviews.each do |review|%>
+            <div class="inner">
+                Book: <%= review.book.title %> <br>
+                Title: <%= link_to review.title, review_path(review) %> <br>
+                Rating: <%= review.rating %> stars <br>
+                <%= review.content %>
+            </div>
+        <% end %>
     <% elsif %>
-        <ul class="reviews">
-            <li>There's nothing here :( <br>
-                Get out there and <%= link_to "read something", books_path %></li>
-        </ul>
+        <div class="inner">
+            There's nothing here :( <br>
+                Get out there and <%= link_to "read something", books_path %>
+        </div>
     <% end%>
 </div>

@@ -1,9 +1,15 @@
 class SessionsController < ApplicationController
-skip_before_action :auth_user, only: [:login, :create]
+skip_before_action :auth_user, only: [:login, :create, :index]
     
+    def index
+        if session[:user_id]
+            @current_user = User.find(session[:user_id])
+        end
+    end
+
     def logout
         session.delete(:user_id)
-        redirect_to books_path
+        redirect_to root_path
     end
 
     def login
