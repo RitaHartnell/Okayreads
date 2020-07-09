@@ -12,6 +12,11 @@
     <% @author.books.each do |book| %>
         <%= link_to book.title, book_path(book) %> <br>
     <% end %>
+    <p><%= link_to "Favourite This Author", new_favorite_path, class: 'button' %></p>
+</div>
 
-    <p><%= link_to "Create a favorite author!", new_favorite_path, class: 'button' %></p>
+<div>
+    <iframe class = "iframe"
+    src="<%= "https://en.wikipedia.org/wiki/#{@author.name}" %>">
+    </iframe>
 </div>

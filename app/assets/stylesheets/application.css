@@ -202,6 +202,8 @@ input.btn {
     text-align: center;
     text-decoration: none;
     display: inline-block;
+    position: relative;
+    left: 5em;
 }
 
 button.btn {
@@ -226,4 +228,19 @@ label {
 
 input, label {
     float: left;
+}
+
+div.login {
+    padding-bottom: 4em;
+}
+div.authors {
+    -moz-column-count: 3;
+    -webkit-column-count: 3;
+    column-count: 3;
+}
+
+.iframe {
+    max-width: inherit;
+    width: 100%;
+    height: 100em;
 }

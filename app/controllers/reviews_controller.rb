@@ -16,7 +16,11 @@ class ReviewsController < ApplicationController
         # end
         # @review.save
         # redirect_to user_path(@current_user.id)
-        @current_user.reviews << Review.create(review_params)
+        @review = Review.new(review_params)
+        @review.book_id = session[:book_id]
+        @review.user = @current_user
+        @review.save
+        session[:book_id] = nil
         redirect_to user_path(@current_user)
     end
 
@@ -33,10 +37,6 @@ class ReviewsController < ApplicationController
     private
 
     def review_params
-        if !session[:book_id]
-            params.require(:review).permit(:title, :book_id, :content, :rating)   
-        else
-            params.require(:review).permit(:title, :content, :rating)
-        end
+        params.require(:review).permit(:title, :content, :rating)
     end
 end
