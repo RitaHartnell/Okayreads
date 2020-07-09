@@ -7,13 +7,32 @@
 </div>
 
 <% if @current_user %>
-    <div style="overflow: hidden; margin: 15px auto; max-width: 800px;">
-        <iframe scrolling="no" src="<%=user_path(@current_user)%>" style="border: 0px none; height: 835px; margin-top: -490px; margin-left: 0px; margin-right: 10px; width: 800px;">
-        </iframe>
+    <div>
+        <h2>Your Reviews</h2>
+        <% if @current_user.reviews != []  %>
+            <% @current_user.reviews.each do |review|%>
+                <div class="inner">
+                    Book: <%= review.book.title %> <br>
+                    Title: <%= link_to review.title, review_path(review) %> <br>
+                    Rating: <%= review.rating %> stars <br>
+                    <%= review.content %>
+                </div>
+            <% end %>
+        <% elsif %>
+            <div class="inner">
+                There's nothing here :( <br>
+                    Get out there and <%= link_to "read something", books_path %>
+            </div>
+        <% end%>
     </div>
 <% else %>
-    <div style="overflow: hidden; margin: 15px auto; max-width: 800px;">
-        <iframe scrolling="yes" src="<%=books_path%>" style="border: 0px none; height: 835px; margin-top: -110px; margin-left: 0px; margin-right: 10px; width: 800px;">
-        </iframe>
+    <% books = Book.all %>
+    <div class='page-title'>
+        <h1 class='nobutton'>All Books</h1>
+    </div>
+    <div class="authors">
+        <% books.sort_by{|book| book.title}.each do |book| %>
+            <%= link_to book.title, book_path(book) %> <br>
+        <% end %>
     </div>
 <% end %>
