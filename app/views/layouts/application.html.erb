@@ -14,6 +14,19 @@
     <%= link_to "Home", root_path%>
     <%= link_to "Books", books_path%>
     <%= link_to "Authors", authors_path%>
+    
+    <% if session[:user_id] %>
+    <% @current_user = User.find(session[:user_id]) %>
+    <%=link_to "My Profile", user_path(@current_user.id)%>
+    <%= link_to "Log-out", sessions_logout_path, method: :delete %>
+
+    <% else %>
+    <%= link_to "Sign up!", new_user_path, class: 'right' %>
+    <%= link_to "Log-in", new_login_path, class: 'right' %>
+
+    <% end %>
+    
+
     <div class="search-container">
       <%= form_with(url: search_path, method: 'get', local: true) do %>
           <%= text_field_tag :title, nil, placeholder: 'Search Books', class: 'form-control' %>

@@ -2,8 +2,8 @@
     <h1>Authors</h1>
 </div>
 
-<div>
-    <% @authors.each do |author| %>
+<div class='authors'>
+    <% @authors.sort_by{|author| author.name}.reverse.each do |author| %>
         <%= link_to author.name, author_path(author) %> <br>
     <% end %>
 </div>

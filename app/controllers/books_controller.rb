@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+
+    skip_before_action :auth_user, only: [:index, :show, :search]
     def index
         @books = Book.all
     end

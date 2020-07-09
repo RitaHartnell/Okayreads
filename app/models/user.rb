@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
     validates :username, uniqueness: true
     validates :displayname, format: { with: /[\w\s]+/, message: "only allows letters and spaces" }
+
+    has_secure_password
 end

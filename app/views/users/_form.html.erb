@@ -1,6 +1,8 @@
 <div class='form'><%= form_for @user do |f|%>
     <%= f.label :username%>
     <%= f.text_field :username%> <br>
+    <%= f.label :password %>
+    <%= f.text_field :password %><br>
     <%= f.label :displayname, "Display Name",  :class=>'inline betaLabelTextField'%>
     <%= f.text_field :displayname, :class=>'betaTextField'%> <br>
     <%= f.label :age %>
