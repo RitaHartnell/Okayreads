@@ -3,7 +3,5 @@
 </div>
 
 <div class='authors'>
-    <% @authors.sort_by{|author| author.name}.each do |author| %>
-        <%= link_to author.name, author_path(author) %> <br>
-    <% end %>
+    <%= link_to author.name, author_path(author) %> <br>
 </div>
