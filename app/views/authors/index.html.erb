@@ -3,5 +3,7 @@
 </div>
 
 <div class='authors'>
+    <% @authors.each do |author| %>
     <%= link_to author.name, author_path(author) %> <br>
+    <%end %>
 </div>
