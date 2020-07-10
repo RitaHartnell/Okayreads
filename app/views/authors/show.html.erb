@@ -1,8 +1,8 @@
 <div class="page-title">
     <section class="all-links">
         <h1><%= @author.name %></h1>
-        <% @current_user = User.find(session[:user_id]) %>
-        <% if @current_user %>
+        <% if session[:user_id] %>
+            <% @current_user = User.find(session[:user_id]) %>
             <% if @current_user.authors.include?(@author) %>
                 <%= button_to "Unfavorite", unfavorite_author_path, method: "POST"%>
             <% else %>
