@@ -1,11 +1,17 @@
 <div class="page-title">
-    <h1><%= @author.name %></h1>
-    <% if session[:authors] %>
-        <% if session[:authors].find{|h| h['id'] == @author.id} %>
-            
-            <%= link_to "Back to Search", search_path, class: "button" %>
+    <section class="all-links">
+        <h1><%= @author.name %></h1>
+        <% @current_user = User.find(session[:user_id]) %>
+        <% if @current_user %>
+            <% if @current_user.authors.include?(@author) %>
+                <%= button_to "Unfavorite", unfavorite_author_path, method: "POST"%>
+            <% else %>
+                <%= button_to "Favorite", favorite_author_path, method:"POST"%>
+            <% end%>
+        <% else %>
+            <%= link_to "Login to Fav", new_login_path, class: "button" %>
         <% end %>
-    <% end %>
+    </section>
 </div>
 
 <div>
@@ -13,7 +19,7 @@
     <% @author.books.each do |book| %>
         <%= link_to book.title, book_path(book) %> <br>
     <% end %>
-    
+</div>
 
 <div>
     <iframe class = "iframe"

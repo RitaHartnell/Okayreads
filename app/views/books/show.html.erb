@@ -1,8 +1,8 @@
 <div class="page-title">
     <h1><%= @book.title %> by <%= link_to @book.author.name, author_path(@book.author) %></h1>
     <% if session[:title] %>
-        <p class='Link-wrapper'><%= link_to 'Back to Search', search_path, class: "button" %> <br>
-        <%= link_to "Review this Book", new_review_path, class: 'button'%>
+        <p class='Link-wrapper'>
+            <%= link_to "Review this Book", new_review_path, class: 'button'%>
         </p>
     <% end %>
 </div>

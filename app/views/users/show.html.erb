@@ -35,9 +35,16 @@
 
 <div>
   <h2>My Favorite Authors</h2>
-  <%= link_to "Favorite an Author!", new_favorite_path %>
-  <% @user.favorites.each do |favorite| %>
-  <p><%= link_to favorite.author.name, author_path(favorite.author.id) %>, Genre: <%= favorite.genre %></p>
-
-  <p><%= button_to "Remove this author from your favorites", favorite_path(favorite.id), method: :delete %></p><br>
-  <% end %>
+    <% if @user.favorites != [] %>
+        <% @user.favorites.each do |favorite| %>
+            <div class = "inner">
+                <%= link_to favorite.author.name, author_path(favorite.author.id) %>
+                <%= button_to "Unfavorite", favorite_path(favorite.id), method: :delete %>
+            </div>
+        <% end %>
+    <% else %>
+        <div class="inner">
+            There's nothing here :(
+        </div>
+    <% end %>
+</div>
